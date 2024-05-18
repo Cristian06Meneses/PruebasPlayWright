@@ -1,0 +1,37 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://buggy.justtestit.org/');
+  await page.getByRole('link', { name: 'Register' }).click();
+  await page.getByLabel('Login').click();
+  await page.getByLabel('Login').fill('cris1234');
+  await page.getByLabel('First Name').click();
+  await page.getByLabel('First Name').fill('cris');
+  await page.getByLabel('Last Name').click();
+  await page.getByLabel('Last Name').fill('cris');
+  await page.getByLabel('Password', { exact: true }).click();
+  await page.getByLabel('Password', { exact: true }).fill('abcdefg');
+  await page.getByLabel('Confirm Password').click();
+  await page.getByLabel('Confirm Password').fill('abcdefg');
+  await page.getByRole('button', { name: 'Register' }).click();
+  await page.getByLabel('Password', { exact: true }).click();
+  await page.getByLabel('Password', { exact: true }).fill('abcdefgh');
+  await page.getByLabel('Confirm Password').click();
+  await page.getByLabel('Confirm Password').fill('abcdefgh');
+  await page.getByRole('button', { name: 'Register' }).click();
+  await page.getByLabel('Password', { exact: true }).click();
+  await page.getByLabel('Password', { exact: true }).fill('abcdefghI');
+  await page.getByLabel('Confirm Password').click();
+  await page.getByLabel('Confirm Password').fill('abcdefghI');
+  await page.getByRole('button', { name: 'Register' }).click();
+  await page.getByLabel('Password', { exact: true }).click();
+  await page.getByLabel('Password', { exact: true }).fill('abcdefghI1');
+  await page.getByLabel('Confirm Password').click();
+  await page.getByLabel('Confirm Password').fill('abcdefghI1');
+  await page.getByRole('button', { name: 'Register' }).click();
+  await page.getByLabel('Password', { exact: true }).click();
+  await page.getByLabel('Password', { exact: true }).fill('abcdefghI1!');
+  await page.getByLabel('Confirm Password').click();
+  await page.getByLabel('Confirm Password').fill('abcdefghI1!');
+  await page.getByRole('button', { name: 'Register' }).click();
+});
